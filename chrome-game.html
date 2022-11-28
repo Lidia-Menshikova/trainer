@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Тренажёр горячих клавиш браузера Google Chrome</title>
+    <style>
+      body {
+        font-family: "Caveat", Helvetica, sans-serif;
+        color: #343a40;
+      }
+
+      .btn-dark {
+    color: RGB(250,251,253);
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+      #mainHeading {
+        text-align: center;
+        font-size: 4rem;
+      }
+
+      .answers-display {
+        font-size: 3rem;
+        text-align: center;
+      }
+      .spans {
+        font-size: 3rem;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+      .col {
+        margin: 1%;
+      }
+      .row {
+        display: flex;
+        justify-content: center;
+      }
+      .hide {
+        display: none;
+      }
+      .buttonier {
+        width: 185px;
+        height: 40px;
+        background-color: RGB(250,251,253);
+        border-radius: 33%;
+        border: solid#343a40 3px;
+        font-size: larger;
+        font-weight: bold;
+        font-size: 40%;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        margin: 3px;
+        padding: 3px;
+        margin-top: -0.625em;
+        vertical-align: bottom;
+        text-align: center;
+        vertical-align: baseline;
+        color: #343a40;
+      }
+      .col-flex {
+        display: flex;
+        justify-content: center;
+      }
+      .buttonier:hover {
+        width: 185px;
+        height: 40px;
+        border-radius: 33%;
+        border: solid black 3px;
+        cursor: pointer;
+        background-color:RGB(251,194,28);
+      }
+      .img {
+        width: 100px;
+        height: 100px;
+      }
+      #img2 {
+        padding-left: 3px;
+      }
+      #wrapper2 {
+        display: flex;
+        justify-content: center;
+      }
+      #back {
+        margin-top: 2%;
+        width: 125px;
+        visibility: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      @media screen and (max-width: 600px) {
+        .buttonier {
+          font-size: 0.8rem;
+          height: 30px;
+          margin: 3px;
+        }
+        #back {
+          margin-top: 5%;
+          width: 125px;
+          visibility: hidden;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        .spans {
+          font-size: 2rem;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+        }
+        #mainHeading {
+          text-align: center;
+          font-size: 3rem;
+        }
+        .buttonier:hover {
+          height: 30px;
+        }
+
+    
+      }
+      .text {
+        color: RGB(39,152,70);
+        opacity: 60%;
+        font-size: 1000%;
+        position: absolute;
+        top: 30%;
+        left: 51%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        display: flex;
+        text-shadow: 2px 2px 2px #000;
+      }
+      .text span {
+        animation: smoke 1.5s linear forwards;
+      }
+      @keyframes smoke {
+        100% {
+          opacity: 0;
+          filter: blur(40px);
+          transform: rotate(25deg) translateY(-150px);
+        }
+      }
+      .text span:nth-child(1) {
+        animation-delay: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container hide">
+        <h1 id="mainHeading">Тренажёр начинающего кодера!</h1>
+      </div>
+      <br />
+    </header>
+    <div class="row">
+      <button class="text-center hide" id="startVS">VSCode</button>
+      <a
+        href="https://nikomedvedev.ru/other/vscodeshortcuts/hotkeys.html"
+        target="_blank"
+        ><img src="chrome.png" alt="Логотип VSCode" class="img" id="img1"
+      /></a>
+
+      <button class="text-center hide" id="startEmmet">Emmet</button>
+      <a href="https://webdesign-master.ru/blog/html-css/2.html"
+        ><img src="emmet.svg" alt="Логотип Emmet" class="img hide" id="img2"
+      /></a>
+    </div>
+    <div class="container text-center hide" id="display">
+      <div class="spans">
+        <div id="questionField"></div>
+        <br />
+        <br />
+        <div>
+          <br />
+        </div>
+      </div>
+      <div class="answers-display">
+        <div class="col col-flex">
+          <div
+            id="answerField0"
+            class="buttonier"
+            onclick="change0(this)"
+          ></div>
+          <div
+            id="answerField1"
+            class="buttonier"
+            onclick="change1(this)"
+          ></div>
+          <div
+            id="answerField2"
+            class="buttonier"
+            onclick="change2(this)"
+          ></div>
+        </div>
+        <div class="col col-flex">
+          <div
+            id="answerField3"
+            class="buttonier"
+            onclick="change3(this)"
+          ></div>
+          <div
+            id="answerField4"
+            class="buttonier"
+            onclick="change4(this)"
+          ></div>
+          <div
+            id="answerField5"
+            class="buttonier"
+            onclick="change5(this)"
+          ></div>
+        </div>
+        <div class="col col-flex">
+          <div
+            id="answerField6"
+            class="buttonier"
+            onclick="change6(this)"
+          ></div>
+          <div
+            id="answerField7"
+            class="buttonier"
+            onclick="change7(this)"
+          ></div>
+          <div
+            id="answerField8"
+            class="buttonier"
+            onclick="change8(this)"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper2">
+      <button
+        class="btn btn-dark"
+        id="back"
+        onclick="location.href='main.html'"
+      >
+        Назад
+      </button>
+    </div>
+    <div class="text hide">
+      <span class="hide" id="P0">&#10003</span>
+    </div>
+    <script src="questions1.js"></script>
+    <script>
+      let A = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+      let i = 0;
+      while (i < 9) {
+        let result = true;
+        let x = Math.floor(Math.random() * 41 + 1);
+        let j = 0;
+        while (j < 9) {
+          if (x == A[j]) {
+            i = i - 1;
+            let result = false;
+            console.log(result);
+            x = 0;
+            j = 9;
+          }
+          j = j + 1;
+        }
+        if (x > 0) {
+          A[i] = x;
+        }
+        i = i + 1;
+      }
+      const [ind0, ind1, ind2, ind3, ind4, ind5, ind6, ind7, ind8] = A;
+
+      const answerField0 = document.getElementById("answerField0");
+      const answerField1 = document.getElementById("answerField1");
+      const answerField2 = document.getElementById("answerField2");
+      const answerField3 = document.getElementById("answerField3");
+      const answerField4 = document.getElementById("answerField4");
+      const answerField5 = document.getElementById("answerField5");
+      const answerField6 = document.getElementById("answerField6");
+      const answerField7 = document.getElementById("answerField7");
+      const answerField8 = document.getElementById("answerField8");
+
+      answerField0.textContent = chromeObject[ind0][1];
+      answerField1.textContent = chromeObject[ind1][1];
+      answerField2.textContent = chromeObject[ind2][1];
+      answerField3.textContent = chromeObject[ind3][1];
+      answerField4.textContent = chromeObject[ind4][1];
+      answerField5.textContent = chromeObject[ind5][1];
+      answerField6.textContent = chromeObject[ind6][1];
+      answerField7.textContent = chromeObject[ind7][1];
+      answerField8.textContent = chromeObject[ind8][1];
+
+      let A2 = [
+        chromeObject[ind0],
+        chromeObject[ind1],
+        chromeObject[ind2],
+        chromeObject[ind3],
+        chromeObject[ind4],
+        chromeObject[ind5],
+        chromeObject[ind6],
+        chromeObject[ind7],
+        chromeObject[ind8],
+      ];
+
+      let arrayRandom = Math.floor(Math.random() * A2.length);
+      let randomNumber = A2[arrayRandom]; 
+
+
+      const questionField = document.getElementById("questionField");
+      questionField.innerText = randomNumber[0];
+
+      const back = document.getElementById("back");
+      const displayContent = document.getElementById("display");
+      const mainHeadingContent = document.getElementById("mainHeading");
+
+      function animation1() {
+        img2.hidden = true;
+      }
+
+      function refresh() {
+        displayContent.className = "container ";
+        back.style.visibility = "visible";
+      }
+      refresh();
+      
+      document.addEventListener("keydown", function (event) {
+        if (event.code === "Escape") {
+          event.preventDefault();
+          location.href = "main.html";
+        }
+      });
+
+      let P0 = document.getElementById("P0");
+
+      let rightColor = "RGB(39,152,70)";
+      let wrongColor = "RGB(231,64,50)";
+
+      function change0(anyDOM) {
+        if (randomNumber[1] == answerField0.innerHTML) {
+          anyDOM.style.background = rightColor;
+          anyDOM.style.borderColor = "black";
+          P0.className = "";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 800);
+          function shuffling() {
+            location.href = "chrome-game.html";
+          }
+          setTimeout(shuffling, 1000);
+        } else {
+          anyDOM.style.background = wrongColor;
+          anyDOM.style.borderColor = "black";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 200);
+        }
+      }
+      function change1(anyDOM) {
+        if (randomNumber[1] == answerField1.innerHTML) {
+          anyDOM.style.background = rightColor;
+          anyDOM.style.borderColor = "black";
+          P0.className = "";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 800);
+          function shuffling() {
+            location.href = "chrome-game.html";
+          }
+          setTimeout(shuffling, 1000);
+        } else {
+          anyDOM.style.background = wrongColor;
+          anyDOM.style.borderColor = "black";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 200);
+        }
+      }
+      function change2(anyDOM) {
+        if (randomNumber[1] == answerField2.innerHTML) {
+          anyDOM.style.background = rightColor;
+          anyDOM.style.borderColor = "black";
+          P0.className = "";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 800);
+          function shuffling() {
+            location.href = "chrome-game.html";
+          }
+          setTimeout(shuffling, 1000);
+        } else {
+          anyDOM.style.background = wrongColor;
+          anyDOM.style.borderColor = "black";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 200);
+        }
+      }
+      function change3(anyDOM) {
+        if (randomNumber[1] == answerField3.innerHTML) {
+          anyDOM.style.background = rightColor;
+          anyDOM.style.borderColor = "black";
+          P0.className = "";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 800);
+          function shuffling() {
+            location.href = "chrome-game.html";
+          }
+          setTimeout(shuffling, 1000);
+        } else {
+          anyDOM.style.background = wrongColor;
+          anyDOM.style.borderColor = "black";
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 200);
+        }
+      }
+      function change4(anyDOM) {
+        if (randomNumber[1] == answerField4.innerHTML) {
+          anyDOM.style.background = rightColor;
+          anyDOM.style.borderColor = "black";
+          P0.className = "";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 800);
+          function shuffling() {
+            location.href = "chrome-game.html";
+          }
+          setTimeout(shuffling, 1000);
+        } else {
+          anyDOM.style.background = wrongColor;
+          anyDOM.style.borderColor = "black";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 200);
+        }
+      }
+      function change5(anyDOM) {
+        if (randomNumber[1] == answerField5.innerHTML) {
+          anyDOM.style.background = rightColor;
+          anyDOM.style.borderColor = "black";
+          P0.className = "";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 800);
+          function shuffling() {
+            location.href = "chrome-game.html";
+          }
+          setTimeout(shuffling, 1000);
+        } else {
+          anyDOM.style.background = wrongColor;
+          anyDOM.style.borderColor = "black";
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 200);
+        }
+      }
+      function change6(anyDOM) {
+        if (randomNumber[1] == answerField6.innerHTML) {
+          anyDOM.style.background = rightColor;
+          anyDOM.style.borderColor = "black";
+          P0.className = "";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 800);
+          function shuffling() {
+            location.href = "chrome-game.html";
+          }
+          setTimeout(shuffling, 1000);
+        } else {
+          anyDOM.style.background = wrongColor;
+          anyDOM.style.borderColor = "black";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 200);
+        }
+      }
+      function change7(anyDOM) {
+        if (randomNumber[1] == answerField7.innerHTML) {
+          anyDOM.style.background = rightColor;
+          anyDOM.style.borderColor = "black";
+          P0.className = "";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 800);
+          function shuffling() {
+            location.href = "chrome-game.html";
+          }
+          setTimeout(shuffling, 1000);
+        } else {
+          anyDOM.style.background = wrongColor;
+          anyDOM.style.borderColor = "black";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 200);
+        }
+      }
+      function change8(anyDOM) {
+        if (randomNumber[1] == answerField8.innerHTML) {
+          anyDOM.style.background = rightColor;
+          anyDOM.style.borderColor = "black";
+          P0.className = "";
+
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 800);
+          function shuffling() {
+            location.href = "chrome-game.html";
+          }
+          setTimeout(shuffling, 1000);
+        } else {
+          anyDOM.style.background = wrongColor;
+          anyDOM.style.borderColor = "black";
+          function backСhanges() {
+            anyDOM.style.background = "RGB(250,251,253)";
+            anyDOM.style.borderColor = "black";
+          }
+          setTimeout(backСhanges, 200);
+        }
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/TextPlugin.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
