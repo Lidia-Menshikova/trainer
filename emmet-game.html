@@ -155,13 +155,12 @@
             dataBase[i][0];
         }
       };
-
+      // document.getElementById("imgQuestion").style.filter = "grayscale(100%)";
       document
         .getElementById("imgQuestion")
         .addEventListener("click", (event) => {
           navigator.clipboard.writeText(dataBase[i][1]);
-          // document.getElementById("imgQuestion").style.filter =
-          //   "grayscale(100%)";
+
           document.getElementById("imgQuestion").style.filter = "opacity(0%)";
           prompt.style.filter = "opacity(0%)";
         });
