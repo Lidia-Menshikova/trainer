@@ -76,10 +76,6 @@ body {
   transform: translateZ(-30px);
 }
 
-/* #library:hover {
-  transform: translateZ(-30px);
-} */
-
 .menu__item-js {
   min-width: 30%;
   min-height: 30%;
@@ -95,4 +91,8 @@ body {
 .menu__item-emmet {
   min-width: 30%;
   min-height: 30%;
+}
+.popup,
+.popup-close {
+  font-family: "Jura", sans-serif;
 }
