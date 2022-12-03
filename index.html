@@ -251,6 +251,20 @@
           }
         });
 
+        $(document).keydown(function (e) {
+          if (e.keyCode === 13) {
+            e.stopPropagation();
+            $(".popup-fade").fadeOut();
+          }
+        });
+
+        $(document).keydown(function (e) {
+          if (e.keyCode === 32) {
+            e.stopPropagation();
+            $(".popup-fade").fadeOut();
+          }
+        });
+
         $(".popup-fade").click(function (e) {
           if ($(e.target).closest(".popup").length == 0) {
             $(this).fadeOut();
