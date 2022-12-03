@@ -10,17 +10,16 @@
       integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Caveat&display=swap"
-      rel="stylesheet"
-    />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&display=swap" rel="stylesheet">
+
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Тренажёр горячих клавиш VS Code</title>
     <style>
       body {
-        font-family: "Caveat", Helvetica, sans-serif;
+        font-family: "Jura", sans-serif;
       }
 
       #mainHeading {
@@ -53,11 +52,11 @@
         height: 40px;
         background-color: gainsboro;
         border-radius: 33%;
-        border: solid black 3px; 
+        border: solid gray 2px; 
         font-size: larger;
         font-weight: bold;
         font-size: 40%;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Jura", sans-serif;
         cursor: pointer;
         margin: 3px;
         padding: 3px;
@@ -89,9 +88,12 @@
         margin-top: 2%;
         width: 125px;
         visibility: hidden;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Jura", sans-serif;
       }
       @media screen and (max-width: 600px) {
+        #questionField {
+        font-size: 70%;
+      }
         .buttonier {
           font-size: 0.8rem;
           height: 30px;
@@ -163,14 +165,16 @@
       <a href="https://webdesign-master.ru/blog/html-css/2.html"
         ><img src="emmet.svg" alt="Логотип Emmet" class="img hide" id="img2"
       /></a>
+      
     </div>
+    <br /> 
     <div class="container text-center hide" id="display">
       <div class="spans">
         <div id="questionField"></div>
         <br />
         <br />
         <div>
-          <br />
+          <br />           <br />
         </div>
       </div>
       <div class="answers-display">
