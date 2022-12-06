@@ -85,9 +85,6 @@
         width: 100px;
         height: 100px;
       }
-      #img2 {
-        padding-left: 3px;
-      }
       #wrapper2 {
         display: flex;
         justify-content: center;
@@ -156,30 +153,19 @@
       .text span:nth-child(1) {
         animation-delay: 0.5s;
       }
- 
     </style>
   </head>
   <body>
-    <header>
-      <div class="container hide">
-        <h1 id="mainHeading">Тренажёр начинающего кодера!</h1>
-      </div>
-      <br />
-    </header>
     <div class="row">
-      <button class="text-center hide" id="startVS">VSCode</button>
+      <button class="text-center hide" ></button>
       <a
         href="https://support.google.com/chrome/answer/157179?hl=ru-ru&co=GENIE.Platform%3DDesktop"
         target="_blank"
-        ><img src="chrome.png" alt="Логотип VSCode" class="img" id="img1"
+        ><img src="chrome.png" alt="Логотип Chrome" class="img" id="img1"
       /></a>
 
-      <button class="text-center hide" id="startEmmet">Emmet</button>
-      <a href="https://webdesign-master.ru/blog/html-css/2.html"
-        ><img src="emmet.svg" alt="Логотип Emmet" class="img hide" id="img2"
-      /></a>
     </div>
-    <div class="container text-center hide" id="display">
+    <div class="container text-center">
       <div class="spans">
         <div id="questionField"></div>
         <br />
@@ -322,17 +308,8 @@
       const back = document.getElementById("back");
       const displayContent = document.getElementById("display");
       const mainHeadingContent = document.getElementById("mainHeading");
+      back.style.visibility = "visible";
 
-      function animation1() {
-        img2.hidden = true;
-      }
-
-      function refresh() {
-        displayContent.className = "container ";
-        back.style.visibility = "visible";
-      }
-      refresh();
-      
       document.addEventListener("keydown", function (event) {
         if (event.code === "Escape") {
           event.preventDefault();
